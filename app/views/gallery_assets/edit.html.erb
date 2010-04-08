@@ -1,0 +1,12 @@
+<h1>Editing gallery_asset</h1>
+
+<% form_for(@gallery_asset) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @gallery_asset %> |
+<%= link_to 'Back', gallery_assets_path %>

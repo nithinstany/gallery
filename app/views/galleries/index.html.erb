@@ -1,0 +1,32 @@
+
+
+<% unless @galleries.blank? %>
+
+
+<% i = 0 %>
+<% @galleries.each do |gallery| %>
+ <div class="<%= i%2 == 0 ? 'gallery_left' : 'gallery_right'%>">
+<table>
+  <tr>
+
+     <td>
+       <% i += 1%>
+       <% unless gallery.gallery_assets.blank? -%>
+         <%=  link_to image_tag(gallery.gallery_assets.find(:first, :order => "RAND()").asset.url(:thumb),:class => 'gallery_image') , gallery    %>
+       <% end -%>
+     </td>
+     <td>
+         <h5> Gallery Name : </h5><%= link_to gallery.name ,gallery %> <h5> Description : </h5> <%=h gallery.description %>
+     </td>
+
+  </tr>
+  </table>
+  </div>
+  <% if i % 2 == 0%>
+     <div class='clear'> </div>
+  <%end%>
+<% end %>
+
+<%end%>
+<br />
+

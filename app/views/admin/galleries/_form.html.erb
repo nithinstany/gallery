@@ -1,0 +1,25 @@
+
+
+<p>
+    <%= form.label :name %><br />
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :description %><br />
+    <%= form.text_field :description %>
+  </p>
+
+ <h2>Gallery Images</h2>
+
+  <%= add_photo(form) %>
+
+<div id="add_photo">
+
+    <% form.fields_for :gallery_assets do |gallery_asset_form|  %>
+     <div class="gallery_asset">
+        <%=  render :partial => 'gallery_asset', :locals => { :f => gallery_asset_form }%>
+    </div>
+    <% end %>
+
+</div>
+

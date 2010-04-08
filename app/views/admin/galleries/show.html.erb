@@ -1,0 +1,37 @@
+<% content_for :addtional_includes do -%>
+   <%= javascript_include_tag "jquery","jquery.lightbox-0.5" %>
+   <%= stylesheet_link_tag "jquery.lightbox-0.5.css" %>
+
+    <script type="text/javascript">
+    $(function() {
+        $('#gallery a').lightBox();
+    });
+    </script>
+
+<% end -%>
+
+<p>
+  <b>Name:</b>
+  <%=h @gallery.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @gallery.description %>
+</p>
+ <% unless @gallery.gallery_assets.blank? %>
+<div id="gallery">
+  <ul>
+     <% @gallery.gallery_assets.each do |image| %>
+        <li>
+            <a href="<%= image.asset.url(:large)%>" title="<%= image.asset_file_name%>" alt="<%= image.asset_file_name%>">
+                <img src="<%= image.asset.url(:thumb)%>"  alt="%= image.asset_file_name%>" />
+            </a>
+        </li>
+        <%end%>
+  </ul>
+</div>
+<%end%>
+<%= link_to 'Edit', edit_admin_gallery_path(@gallery) %> |
+<%= link_to 'Back', admin_galleries_path %>
+

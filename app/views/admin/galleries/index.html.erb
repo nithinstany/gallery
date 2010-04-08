@@ -1,0 +1,29 @@
+<%= link_to 'New gallery', new_admin_gallery_path %>
+<br /><br />
+<% i = 0 %>
+
+
+<% @galleries.each do |gallery| %>
+<div class="<%= i%2 == 0 ? 'gallery_left' : 'gallery_right'%>">
+<table>
+  <tr>
+       <td> <% i += 1%>
+         <% unless gallery.gallery_assets.blank? -%>
+            <%=  link_to image_tag(gallery.gallery_assets.find(:first, :order => "RAND()").asset.url(:thumb)) , gallery    %>
+         <% end -%>
+    </td>
+    <td> <h5> Gallery Name : </h5><%= link_to gallery.name ,gallery %>
+         <h5> Description : </h5><%=h gallery.description %></td>
+    <td><%= link_to 'Edit', edit_admin_gallery_path(gallery) %> &nbsp; | &nbsp;
+     <%= link_to 'Destroy', admin_gallery_path(gallery), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+    </table>
+  </div>
+  <% if i % 2 == 0%>
+     <div class='clear'> </div>
+  <%end%>
+<% end %>
+
+
+<br />
+

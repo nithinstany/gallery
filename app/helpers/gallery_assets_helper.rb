@@ -1,0 +1,2 @@
+module GalleryAssetsHelper
+end

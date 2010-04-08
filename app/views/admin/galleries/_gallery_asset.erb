@@ -1,0 +1,12 @@
+<br />
+<fieldset>
+<% if f.object.asset.exists? %>
+ <p>Previously uploaded : <%= link_to f.object.asset_file_name,
+ f.object.asset.url  %>   <%= delete_photo(f) %></p>
+<% end  %>
+<p>
+  <%= f.label :asset, "Gallery Image" %>
+  <%= f.file_field :asset %>
+</p>
+</fieldset>
+

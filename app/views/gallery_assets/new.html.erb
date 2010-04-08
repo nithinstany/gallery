@@ -1,0 +1,11 @@
+<h1>New gallery_asset</h1>
+
+<% form_for(@gallery_asset) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', gallery_assets_path %>
