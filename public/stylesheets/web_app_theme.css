@@ -438,3 +438,15 @@ padding :10px;
     border: 5px solid #fff;
 }
 
+
+
+
+.ga_left {
+    width:45%;
+    float:left;
+}
+.ga_right {
+    width:45%;
+    float:right;
+}
+

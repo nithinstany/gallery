@@ -1,4 +1,35 @@
+<% content_for :addtional_includes do -%>
+   <%= javascript_include_tag "jquery","jquery.lightbox-0.5" %>
+   <%= stylesheet_link_tag "jquery.lightbox-0.5.css" %>
 
+    <script type="text/javascript">
+    jQuery(function() {
+        jQuery('#gallery a').lightBox();
+    });
+    </script>
+  <script>
+  jQuery.noConflict();
+
+</script>
+
+<% end -%>
+<div class="ga_left">
+<% unless @galleries.blank? %>
+<% @galleries.each do |gallery| %>
+ <%=  link_to_remote "#{gallery.name}", :url => gallery_url(:id => gallery), :method => :get  %> <br />
+
+<% end %>
+
+<%end%>
+</div>
+<div class="ga_right">
+ <div id="gallery_id">
+</div>
+</div>
+
+<div class="clear"> </div>
+
+<!--
 
 <% unless @galleries.blank? %>
 
@@ -29,4 +60,5 @@
 
 <%end%>
 <br />
+-->
 

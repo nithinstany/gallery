@@ -6,6 +6,9 @@ class GalleriesController < ApplicationController
 
   def show
     @gallery = Gallery.find(params[:id],:include => [:gallery_assets])
+    render :update do |page|
+        page.replace_html 'gallery_id', :partial => "show"
+    end
   end
 
   def new
